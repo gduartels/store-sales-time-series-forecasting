@@ -70,3 +70,11 @@ Data sourced from Kaggle includes:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Key Considerations for Evaluators
+
+- **Custom Model Architecture:** Emphasis on manual feature engineering and model tuning over pre-built solutions.
+
+- **Business Context Integration:** Handling of Ecuador-specific factors (oil prices, holidays).
+
+- **Scalability:** Design choices balancing granularity (store-family level) and computational efficiency.
