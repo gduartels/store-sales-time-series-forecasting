@@ -35,15 +35,38 @@ Data sourced from Kaggle includes:
 ├── 04-Feature Engineering.ipynb # Feature creation & lag variables
 ├── 05-Modelling.ipynb # Multivariate model development & validation
 ├── data/ # Raw and processed datasets
-|── data_results/ # Modeling results
+├── data_results/ # Modelling results
 └── README.md # Project documentation
 ```
 
 ## Notebook Summaries
 
 ### `01-Cleaning.ipynb`
-*Content Overview*  
-*(Summary to be added by the user)*  
+
+#### Key Actions:
+
+1. **Loading and Initial Inspection:**
+    - Verification of dimensions, data types, unique values, and missing values in all datasets (`train`, `test`, `oil`, `holidays`, `stores`, `transactions`).
+2. **Date Handling:**
+    - Conversion of `date` columns to `datetime` type.
+    - Filling of missing dates via daily resampling (`1D`) to ensure temporal continuity:
+      - **Train/Test:** Filling by `store_nbr` × `family` combination (forward fill).
+      - **Oil**: Interpolation of missing prices (forward/backward fill).
+      - **Transactions:** Expansion to all possible dates (2013–2017) per store, with missing transactions filled with 0.
+3. **External Data:**
+    - **Holidays:** Identification of transferred holidays and special events.
+    - **Stores:** Validation of metadata (city, type, cluster) without missing values.
+4. **Output:**
+    - Generation of cleaned datasets: `train_clean.csv`, `oil_clean.csv`, `transactions_clean.csv`.
+
+#### Key Techniques:
+
+- Daily resampling + forward fill for time series.
+- Handling of missing values (interpolation for `oil`, filling with 0 for `transactions`).
+- Ensuring integrity in `store` × `family` × `date` combinations.
+
+*Note:* Training/test data were temporally aligned to avoid gaps, critical for time series models.
+
 
 ### `02-EDA.ipynb`
 *Content Overview*  
