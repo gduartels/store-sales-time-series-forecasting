@@ -89,8 +89,37 @@ This notebook performs an in-depth Exploratory Data Analysis (EDA) aimed at unde
    
 
 ### `03-SARIMA.ipynb`
-*Content Overview*  
-*(Summary to be added by the user)*  
+
+This notebook explores a **baseline univariate time series model** using *SARIMA* (Seasonal AutoRegressive Integrated Moving Average) to forecast total sales across Favorita stores. The primary goal is to evaluate the feasibility of traditional time series methods before advancing to more complex multivariate models.
+
+1. **Data Preparation:**
+    - The dataset is loaded from `train_clean.csv`, with sales data aggregated at the daily level.
+    - The time series is checked for missing values and preprocessed for modeling.
+
+2. **Exploratory Time Series Analysis:**
+    - Summary statistics and visualizations of total sales over time.
+     -Identification of key seasonal patterns (weekly, monthly, and yearly trends).
+    - Detection of outliers and extreme values affecting sales.
+
+3. **SARIMA Model Experiments:**
+
+    - Multiple SARIMA models were tested with different parameter combinations.
+    - Grid Search Optimization was applied to determine the best `(p, d, q) × (P, D, Q, s)` configuration.
+   - Model selection was based on Akaike Information Criterion (AIC) and Root Mean Squared Logarithmic Error (RMSLE).
+
+4. **Forecasting and Model Evaluation:**
+
+    - Time-based cross-validation using `TimeSeriesSplit`.
+    - Comparison of predicted vs. actual sales.
+    - Error analysis to assess the model's ability to capture seasonality and trend components.
+   
+#### Key Findings:
+
+- SARIMA performed reasonably well for short-term forecasting but struggled with long-term trends and external shocks.
+- The model highlighted strong weekly and yearly seasonal patterns.
+- Given the limitations of univariate approaches, further enhancements were needed through feature engineering and multivariate modeling.
+
+This notebook served as an initial benchmark for forecasting sales and provided valuable insights into the temporal structure of the data before proceeding to more sophisticated machine learning models.
 
 ### `04-Feature Enginnering.ipynb`
 *Content Overview*  
