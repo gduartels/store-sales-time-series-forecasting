@@ -72,19 +72,19 @@ Data sourced from Kaggle includes:
 
 This notebook performs an in-depth Exploratory Data Analysis (EDA) aimed at understanding the behavior of Favorita store sales and identifying patterns, trends, and anomalies that could influence forecasting. The main points covered include:
 
-1. **Descriptive Statistics and Data Distribution:**
+- **Descriptive Statistics and Data Distribution:**
     - Calculation of measures of central tendency and dispersion for key variables, such as sales, promotions, and transactions.
     - Analysis of the data distribution by store and product family, allowing for the identification of differences and specific behaviors within each segment.
-2. **Time Series Visualization:**
+- **Time Series Visualization:**
     - Creation of line charts that display the daily evolution of sales, highlighting seasonal patterns (daily, weekly, and annual cycles) and long-term trends.
     - Comparison of time series segmented by store and product family, facilitating the identification of specific seasonalities and peculiarities.
-3. **Outlier Detection and Anomaly Analysis:**
+- **Outlier Detection and Anomaly Analysis:**
     - Identification of abrupt peaks and drops in sales, relating these events to external factors (e.g., holidays, promotions, and atypical events such as the earthquake).
     - Evaluation of the impact these outliers have on the overall behavior of the series.
-4. **Correlation Analysis:**
+- **Correlation Analysis:**
     - Exploration of the relationships between sales and other relevant variables, such as oil prices, the promotion indicator (`onpromotion`), and transaction volumes.
     - Use of heatmaps and scatter plots to visualize and quantify the strength of these correlations.
-5. **Insights for Feature Engineering:**
+- **Insights for Feature Engineering:**
     - The patterns identified during the EDA, such as seasonalities and the influence of external factors, provided the foundation for creating new features (e.g., lag variables, moving averages, and seasonal indicators) that were later utilized in the development of the multivariate model.
    
 
@@ -144,10 +144,33 @@ This notebook focuses on **creating new features** to enhance predictive perform
 This feature set laid the foundation for multivariate modeling in the next phase of the project, ensuring the predictive model could leverage structured temporal patterns and external factors effectively.
 
 ### `05-Modelling.ipynb`
-*Content Overview*  
-*(Summary to be added by the user)*  
 
----
+This notebook focuses on **building, training, and evaluating multivariate models** to forecast sales for Favorita stores. The modeling approach leverages the engineered features from the previous step to improve predictive performance.
+
+- **Data Preparation:**
+    - Loading the dataset (`modelling.parquet`) containing the engineered features and sales targets.
+    - Splitting the data into **training and validation sets** using **time-based cross-validation** to prevent data leakage.
+- **Modeling Strategy:**
+    - Comparison of different regression models for time series forecasting:
+        - **Linear Regression** as a simple baseline.
+        - **LightGBM Regressor** for a more robust tree-based approach.
+    - Feature selection and preprocessing, including:
+        - **Categorical encoding** for store metadata.
+        - **Scaling of numerical features** where necessary.
+- **Hyperparameter Tuning:**
+    - Optimization of **LightGBM parameters** using **RandomizedSearchCV**.
+    - Evaluation of different feature subsets to improve generalization.
+- **Evaluation Metrics:**
+    - **Root Mean Squared Logarithmic Error (RMSLE)** as the primary performance measure.
+    - Residual analysis and feature importance interpretation.
+
+#### Key Findings:
+
+- **LightGBM** significantly outperformed Linear Regression, capturing complex relationships between features.
+- Feature engineering improvements, such as lag variables and holiday effects, played a crucial role in improving accuracy.
+- Time-based cross-validation ensured robustness in forecasting future sales trends.
+
+This notebook represents the final step in the modeling pipeline, providing a scalable and interpretable machine learning solution for Kaggle time series challenge.
 
 ## Setup
 **Dependencies:**  
