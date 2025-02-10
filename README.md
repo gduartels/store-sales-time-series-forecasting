@@ -122,8 +122,26 @@ This notebook explores a **baseline univariate time series model** using *SARIMA
 This notebook served as an initial benchmark for forecasting sales and provided valuable insights into the temporal structure of the data before proceeding to more sophisticated machine learning models.
 
 ### `04-Feature Enginnering.ipynb`
-*Content Overview*  
-*(Summary to be added by the user)*  
+
+This notebook focuses on **creating new features** to enhance predictive performance in the sales forecasting model. The feature engineering process was guided by insights from the Exploratory Data Analysis (EDA) and the limitations observed in the SARIMA model.
+
+- **Temporal Features:**
+    - Extraction of **year, month, day, and day of the week** from the `date` column.
+    - Creation of a **business day indicator** to distinguish weekdays from weekends.
+- **Lag Features:**
+    - **Rolling window statistics** (e.g., moving averages, standard deviations) to capture historical sales trends.
+    - **Lagged sales values** at different time intervals (e.g., 7-day, 14-day, and 30-day lags) to incorporate temporal dependencies.
+- **Seasonality Indicators:**
+    - Monthly and yearly **sinusoidal transformations** to model cyclical patterns.
+    - Encoding of specific **holiday and event effects** using external calendar data.
+- **Store-Level and Promotion Features:**
+    - Aggregated **store-level sales trends** to account for location-specific dynamics.
+    - Inclusion of **onpromotion** data to quantify the impact of promotions on sales.
+- **Macroeconomic & External Data:**
+    - Integration of **oil price data** as a potential macroeconomic indicator.
+    - Analysis of the effect of the **2016 earthquake** on sales behavior.
+
+This feature set laid the foundation for multivariate modeling in the next phase of the project, ensuring the predictive model could leverage structured temporal patterns and external factors effectively.
 
 ### `05-Modelling.ipynb`
 *Content Overview*  
