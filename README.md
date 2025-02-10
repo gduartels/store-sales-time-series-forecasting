@@ -69,8 +69,24 @@ Data sourced from Kaggle includes:
 
 
 ### `02-EDA.ipynb`
-*Content Overview*  
-*(Summary to be added by the user)*  
+
+This notebook performs an in-depth Exploratory Data Analysis (EDA) aimed at understanding the behavior of Favorita store sales and identifying patterns, trends, and anomalies that could influence forecasting. The main points covered include:
+
+1. **Descriptive Statistics and Data Distribution:**
+    - Calculation of measures of central tendency and dispersion for key variables, such as sales, promotions, and transactions.
+    - Analysis of the data distribution by store and product family, allowing for the identification of differences and specific behaviors within each segment.
+2. **Time Series Visualization:**
+    - Creation of line charts that display the daily evolution of sales, highlighting seasonal patterns (daily, weekly, and annual cycles) and long-term trends.
+    - Comparison of time series segmented by store and product family, facilitating the identification of specific seasonalities and peculiarities.
+3. **Outlier Detection and Anomaly Analysis:**
+    - Identification of abrupt peaks and drops in sales, relating these events to external factors (e.g., holidays, promotions, and atypical events such as the earthquake).
+    - Evaluation of the impact these outliers have on the overall behavior of the series.
+4. **Correlation Analysis:**
+    - Exploration of the relationships between sales and other relevant variables, such as oil prices, the promotion indicator (`onpromotion`), and transaction volumes.
+    - Use of heatmaps and scatter plots to visualize and quantify the strength of these correlations.
+5. **Insights for Feature Engineering:**
+    - The patterns identified during the EDA, such as seasonalities and the influence of external factors, provided the foundation for creating new features (e.g., lag variables, moving averages, and seasonal indicators) that were later utilized in the development of the multivariate model.
+   
 
 ### `03-SARIMA.ipynb`
 *Content Overview*  
